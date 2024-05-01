@@ -1,0 +1,37 @@
+package com.example.producto.saludo.controller;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.producto.saludo.mensaje.ProductoMarca;
+import com.example.producto.saludo.mensaje.ProductoMensaje;
+import com.example.producto.saludo.servicio.IProductoServicio;
+
+@RestController
+public class SaludoController {
+
+	@Autowired
+	private IProductoServicio productoService;
+	
+	@GetMapping("/saludos")
+	public ProductoMensaje mostrarmensaje() {
+		return productoService.mensajeback();
+	  }
+	
+	@GetMapping("/marca/{nombre}")
+	public ProductoMarca mostrarmarca(@PathVariable String nombre) {
+		ProductoMarca marca= productoService.findById(nombre);
+		return marca;
+	}
+	
+	@GetMapping("/listar/{nombre}")
+	public List<ProductoMarca> seleccion(){
+		return productoService.findAll();//.stream().filter(p -> p == nombre).collect(Collectors.toList());
+	}
+	
+}

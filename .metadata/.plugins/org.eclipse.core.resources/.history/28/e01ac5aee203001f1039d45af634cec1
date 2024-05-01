@@ -1,0 +1,5 @@
+package com.example.producto.gateway.filters;
+
+public class EjemploGlobalFilters {
+
+}

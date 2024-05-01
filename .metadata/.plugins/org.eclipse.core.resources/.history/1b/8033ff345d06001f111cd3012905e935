@@ -1,0 +1,10 @@
+package com.example.producto.mensaje;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class ProductoMensaje implements Serializable{
+
+}

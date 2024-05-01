@@ -1,0 +1,8 @@
+package com.example.producto.saludo.servicio;
+
+import com.example.producto.saludo.mensaje.ProductoMensaje;
+
+public interface IProductoServicio {
+	
+	public ProductoMensaje mensajeback();
+}

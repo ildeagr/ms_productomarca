@@ -1,0 +1,28 @@
+package com.example.producto.saludo.servicio;
+
+import org.springframework.stereotype.Service;
+
+import com.example.producto.saludo.dao.ProductoDao;
+import com.example.producto.saludo.mensaje.ProductoMarca;
+import com.example.producto.saludo.mensaje.ProductoMensaje;
+
+
+@Service
+public class ProductoServicioImpl implements IProductoServicio{
+
+	private ProductoDao productodao;
+	
+	@Override
+	public ProductoMensaje mensajeback() {
+		ProductoMensaje mensaje=new ProductoMensaje();
+		mensaje.setMensaje("Hola Mundo");
+		
+		return mensaje;
+	}
+
+	@Override
+	public ProductoMarca findById(String nombre) {
+		return productodao.findById(nombre).orElse(null);
+	}
+
+}

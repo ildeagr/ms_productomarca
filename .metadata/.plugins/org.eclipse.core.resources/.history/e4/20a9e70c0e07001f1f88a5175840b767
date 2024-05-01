@@ -1,0 +1,5 @@
+package com.example.producto.saludo.dao;
+
+public interface ProductoDao {
+
+}

@@ -1,0 +1,40 @@
+package com.example.producto.saludo.servicio;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.example.producto.saludo.dao.ProductoDao;
+import com.example.producto.saludo.mensaje.ProductoMarca;
+import com.example.producto.saludo.mensaje.ProductoMensaje;
+
+
+
+@Service
+public class ProductoServicioImpl implements IProductoServicio{
+
+	@Autowired
+	private ProductoDao productodao;
+	
+	@Override
+	public ProductoMensaje mensajeback() {
+		ProductoMensaje mensaje=new ProductoMensaje();
+		mensaje.setMensaje("Hola Mundo");
+		
+		return mensaje;
+	}
+
+	@Override
+	public List<ProductoMarca> findById(String nombre) {
+		return (List<ProductoMarca>) productodao.findByNombre(nombre).filter(e -> e.getNombre()==nombre).orElse(null);
+	}
+
+	@Override
+	@Transactional(readOnly = true) 
+	public List<ProductoMarca> findAll() {
+		return (List<ProductoMarca>) productodao.findAll();
+	}
+
+}

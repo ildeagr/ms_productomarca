@@ -1,0 +1,22 @@
+package com.example.producto.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.producto.mensaje.ProductoMensaje;
+import com.example.producto.servicio.IProductoServicio;
+
+@RestController
+public class SaludoController {
+
+	@Autowired
+	private IProductoServicio productoService;
+	
+	@GetMapping("/saludo")
+	public ProductoMensaje mostrarmensaje() {
+		return productoService.mensajeback();
+	    		
+	  }
+	
+}

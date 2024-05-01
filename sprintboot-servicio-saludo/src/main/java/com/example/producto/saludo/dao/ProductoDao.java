@@ -1,0 +1,8 @@
+package com.example.producto.saludo.dao;
+
+import org.springframework.data.repository.CrudRepository;
+import com.example.producto.saludo.mensaje.ProductoMarca;
+
+public interface ProductoDao extends CrudRepository<ProductoMarca, String>{
+
+}

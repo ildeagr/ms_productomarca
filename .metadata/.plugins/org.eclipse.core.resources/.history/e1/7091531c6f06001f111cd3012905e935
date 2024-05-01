@@ -1,0 +1,19 @@
+package com.example.producto.servicio;
+
+import org.springframework.stereotype.Service;
+
+import com.example.producto.saludo.mensaje.ProductoMensaje;
+
+
+@Service
+public class ProductoServicioImpl implements IProductoServicio{
+
+	@Override
+	public ProductoMensaje mensajeback() {
+		ProductoMensaje mensaje=new ProductoMensaje();
+		mensaje.setMensaje("Hola Mundo");
+		
+		return mensaje;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.example.producto.mensaje;
+
+import java.io.Serializable;
+
+
+@Entity
+public class ProductoMensaje implements Serializable{
+
+}
