@@ -22,7 +22,7 @@ public class ProductoServicioImpl implements IProductoServicio{
 	@Override
 	public ProductoMensaje mensajeback() {
 		ProductoMensaje mensaje=new ProductoMensaje();
-		mensaje.setMensaje("Hola Mundo");
+		mensaje.setMensaje("Hola Novio, gracias por tu ayuda. Te quiero");
 		
 		return mensaje;
 	}
@@ -31,6 +31,12 @@ public class ProductoServicioImpl implements IProductoServicio{
 	@Transactional(readOnly = true) 
 	public List<ProductoMarca> findAll() {
 		return (List<ProductoMarca>) productodao.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<ProductoMarca> findByNombre(String nombre) {
+		return (List<ProductoMarca>) productodao.findByNombre(nombre);
 	}
 
 }

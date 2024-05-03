@@ -9,4 +9,5 @@ public interface IProductoServicio {
 	
 	public ProductoMensaje mensajeback();
 	public List<ProductoMarca> findAll();
+	public List<ProductoMarca> findByNombre(String nombre);
 }
